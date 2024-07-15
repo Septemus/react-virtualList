@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from '@/logo.svg';
 import '@/App.css';
-
-
+import List from"@/components/List"
+import { item } from '@/components/List';
+import {v4 as uuidv4} from 'uuid';
+const arr:item[]=[];
+for(let i=0;i<100;++i) {
+  arr.push({
+    id:uuidv4(),
+    content:`this is content-${Math.random()*100}`
+  })
+}
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <List items={arr}></List>
     </div>
   );
 }
